@@ -2,20 +2,13 @@ import logging
 import socket
 import sys
 
-from my_asyncio import AsyncSocket, NewTask, Scheduler
+from api_task import NewTask
+from my_asyncio import Scheduler
+from socket_async import AsyncSocket
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.INFO)
-# Создаём обработчик вывода в консоль
-handler = logging.StreamHandler(stream=sys.stdout)
-handler.setLevel(logging.INFO)
-
-# Добавляем форматтер
-formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
-handler.setFormatter(formatter)
-
-# Добавляем обработчик в логгер
-logger.addHandler(handler)
+logging.StreamHandler(stream=sys.stdout)
 
 
 HOST, PORT = "", 8001
